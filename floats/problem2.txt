@@ -1,0 +1,36 @@
+Part A:
+-------
+1. Why are these results different?
+The results are different because precision of the answer depends on the order
+in which numbers are added. There are three approaches: adding in increasing
+order of magnitude, adding in decreasing order and adding in order of appearance
+in input. If you were adding in decreasing order of magnitude, you would lose
+precision with each addition. Adding in increasing order of magnitude means you
+would maintain the highest possible precision, since the largest number is
+added last, and adding in order of appearance would result in a varying
+precision, since it depends on the numbers which appear. 
+
+2. Of the three approaches that fsum uses, which is the most accurate, and why?
+Adding in increasing order of magnitude is the most accurate. By adding the
+smaller numbers first, we can maintain the precision of the larger numbers.
+Though some precision may be lost, the significant figures aren't immediately
+used on the large values, thus losing the precision for adding the smaller
+numbers, a problem that arises when you add in decreasing order of magnitude.
+This approach is also better than added in order of appearance, since
+that simply depends on how the input is structured, and is basically arbitrary.
+
+What kinds of inputs would also cause the “most accurate” approach to exhibit
+large errors?
+This approach would result in large errors if the numbers added resulted in a
+sum with more than 24 bits of precision. An input with all numbers of the same
+magnitude where this sum occurs can result in a largely incorrect answer due
+to repeated rounding. If we had to sum up 56 and 63 with only two bits of
+precision, for this example, we would have the number 119, which would then be
+rounded to 1.1e2, which is quite imprecise. 
+
+Part B:
+-------
+
+
+
+

@@ -1,0 +1,50 @@
+CS:APP3e Practice Problem 2.46, pp.111-112:
+-------------------------------------------
+x = 0.00011001100110011001100
+
+a. What is the binary representation of 0.1 - x?
+
+We can find this by subtracting the binary representation of x from the
+binary representation of 0.1. 
+
+0.0001100110011001100110011[0011] - 0.00011001100110011001100[0000]
+= 0.0000000000000000000000011[0011]
+
+b. What is the approximate decimal value of 0.1 - x?
+
+We can find this by obtaining the decimal value of x and subtracting it from
+0.1 directly.
+
+x = 0.00011001100110011001100 (in binary)
+
+This translates to:
+x = 0*2^-1 + 0*2^-2 + 0*2^-3 + 1*2^-4 + 1*2^-5..(at this point, I will only
+display the powers of 2 multiplied by 1)..+ 1*2^-8 + 1*2^-9 + 1*2^-12 + 1*2^-13
++ 1*2^-16 + 1*2^-17 + 1*2^-20 + + 1*2^-21
+  = ~0.0999999046
+
+0.1 - x = 9.5367432e-8
+
+c. The clock starts at 0 when the system is first powered up and keeps counting
+up from there. In this case, the system had been running for around 100 hours.
+What was the difference between the actual time and the time computed by the
+software?
+
+We can find the error in time by converting 100 hours into intervals of 0.1
+seconds, and then measuring the error from there (since we know the value of
+0.1 - x). Using dimensional analysis, we can see that:
+
+100 hrs * (60 min/hr) * (60 sec/min) * (10 intervals of 0.1s/sec)
+= 3600000 intervals of 0.1s
+
+Using the error calculated in b, we can multiply 9.367432e-8 by 3600000 to find
+the difference in time:
+
+9.5367432e-8 * 3600000 = 0.3433227552 seconds
+
+d. The system predicts where an incoming missile will appear based on its
+velocity and the time of the lsat radar detection. Given that a Scud travels
+at around 2000 m/s, how far off was its prediction?
+
+If the velocity was 2000 m/s and the error in time was 0.3433227552 seconds,
+then the prediction was off by 2000 * 0.3433227552 = 686.6455104 meters.
