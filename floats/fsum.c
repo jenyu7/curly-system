@@ -23,12 +23,12 @@ float fsum(FloatArray *floats) {
 
 /* TODO:  IMPLEMENT my_fsum().  MAKE SURE TO EXPLAIN YOUR CODE IN COMMENTS. */
 float my_fsum(FloatArray *floats) {
-  return my_fsum_help(floats, floats.count);
+  return my_fsum_help(floats, floats->count);
 }
 
 float my_fsum_help(FloatArray *floats, int len) {
   int m;
-  if (len < floats.count) {
+  if (len < 2) {
     return naivesum(floats, len);
   }
   m = len/2;
@@ -36,11 +36,11 @@ float my_fsum_help(FloatArray *floats, int len) {
 }
 
 float naivesum(FloatArray *floats, int len){
-  int s;
+  float s;
   int i;
-  s = floats[0];
+  s = floats->values[0];
   for (i = 1; i < len; ++i) {
-    s += floats[i];
+    s += floats->values[i];
   }
   return s;
 }
@@ -76,9 +76,9 @@ int main() {
     printf("Sum computed in order of increasing magnitude:  %e\n", sum2);
     printf("Sum computed in order of decreasing magnitude:  %e\n", sum3);
 
-    /* TODO:  UNCOMMENT WHEN READY!
+     TODO:  UNCOMMENT WHEN READY!
     printf("My sum:  %e\n", my_sum);
-    */
+    
 
     return 0;
 }
